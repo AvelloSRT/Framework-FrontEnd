@@ -1,7 +1,7 @@
 import {data} from '../data/module-data';
 import { Card } from 'react-bootstrap';
 import FlexContainer from '../components/FlexContainer';
-
+import PropTypes from 'prop-types';
 
 const Lab3Page = () => {
     const Item = ({ name, id }) => (
@@ -19,6 +19,11 @@ const Lab3Page = () => {
         <FlexContainer element={Item} data={data} />
       </div>
     );
-  };
+    
 
+
+  };
+  Lab3Page.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,};
   export default Lab3Page;
