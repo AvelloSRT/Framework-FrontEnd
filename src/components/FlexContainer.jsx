@@ -1,6 +1,6 @@
-import App from '../App';
-import AppReducer from '../data/AppReducer';
-import { useReducer } from 'react';
+// import App from '../App';
+// import AppReducer from '../data/AppReducer';
+// import { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 import React from 'react';

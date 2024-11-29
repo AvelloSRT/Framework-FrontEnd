@@ -1,9 +1,9 @@
 import { useReducer } from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
 import '/src/App.css'
 import {data} from './data/module-data';
 import RootLayout from './layouts/RootLayout';
-import { Routes, Route, Outlet} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Lab1Page from './pages/Lab1Page';
 import Lab2Page from './pages/Lab2Page';
 import Lab3Page from './pages/Lab3Page';
@@ -25,7 +25,7 @@ const menuItems = [
 
 
 function App() {
-  const [{count, setCount}] = useState(0)
+  //const [{count, setCount}] = useState(0)
 
   const[state, appDispatch] = useReducer(AppReducer, data);
   return (

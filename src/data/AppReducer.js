@@ -1,25 +1,32 @@
-function AppReducer(state, action){
-    switch(action.type){
+function AppReducer(state, action) {
+    let newState;
+    switch(action.type) {
         case "edit":
             console.log("Updated Fields:", action.updatedFields);
-            return state.map(item =>
+            newState = state.map(item =>
                 item.id === action.id
                   ? { ...item, name: action.newName } : item );
-        case "rate":{
-            return state.map(person =>
+            break;
+        case "rate":
+            newState = state.map(person =>
                 person.id === action.id
-                  ? { ...person,  rating: (person.rating + 1) % 11 }: person );
-            }
-        case "select": {
-            return {
+                  ? { ...person, rating: (person.rating + 1) % 11 } : person );
+            break;
+        case "select":
+            newState = {
                 ...state,
                 selectedId: action.id,
             };
-        }
+            break;
         case "delete":
-            return state.filter(person => person.id !== action.id);       
-            default:
-                return state;
+            newState = state.filter(person => person.id !== action.id);
+            break;
+        default:
+            newState = state;
     }
+    // Save the new state to localStorage
+    localStorage.setItem('appState', JSON.stringify(newState));
+    return newState;
 }
+
 export default AppReducer;

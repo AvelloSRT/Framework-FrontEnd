@@ -14,7 +14,7 @@ function PersonInfo ({id, name, birth, eyes, rating}) {
   const dispatch = context.dispatch;
   const handleDetails = () => {alert(`Details person with ID: ${id}`);}
   const handleEdit = () => { navigate(`/lab4/edit/${id}`); };
-  const handleDelete = () => {dispatch({type: "delete", id: id }); }
+  const handleDelete = () => {dispatch({type: "delete", id }); }
   const handleRate = () => {dispatch({ type: "rate", id});};
     return (
       <Card style={{ width: '18rem' }}>
