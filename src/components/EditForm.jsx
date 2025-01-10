@@ -1,32 +1,55 @@
 import { useForm } from "react-hook-form";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect, useState} from "react";
+import { useLocation } from 'react-router-dom';
 import AppContext from "../data/AppContext";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function EditForm() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { items, dispatch } = useContext(AppContext);
-    const { id } = useParams();
+    const {state} = useLocation();
+    const navigate = useNavigate();
 
-    const itemToEdit = items.find((item) => item.id === parseInt(id, 10));
+   const [itemToEdit, setItemToEdit] = useState(null);
+   const userId = state?.userId;
+   
 
-    useEffect(() => {
-        if (itemToEdit) {
-            reset(itemToEdit);
-        }
-    }, [itemToEdit, reset]);
+   const normalizedItems = Array.isArray(items) ? items : Object.values(items);
 
-    if (!itemToEdit) {
-        return <p>User not found</p>;
+   useEffect(() => {
+    if (!Array.isArray(normalizedItems) || userId === undefined) {
+        console.log("userId undefined");
+        return;
     }
 
+    const foundItem = normalizedItems.find((item) => item.id === userId);
+
+    if (foundItem) {
+        setItemToEdit((prevItem) => {
+            if (prevItem?.id !== foundItem.id) {
+                reset(foundItem); 
+            }
+            return foundItem;
+        });
+    }
+}, [normalizedItems, userId, reset]);
+
+   if (userId === undefined) {
+       return <p>No user selected for editing</p>;
+   }
+
+   if (!itemToEdit) {
+       return <p>User not found</p>;
+   }
+
     const onSubmit = (data) => {
+        console.log("Dispatching edit action with data:", data);
         dispatch({
             type: "edit",
-            id: parseInt(data.id, 10), 
-            updatedFields: data,
+            id: userId, 
+            updatedFields: data
         });
-        alert("Record updated successfully!");
+        navigate(`/lab1/`);
     };
 
     //validacje
@@ -80,11 +103,11 @@ function EditForm() {
                     required: "Kolor oczu jest wymagany",
                 })}
             >
+                <option value="hazel">Hazel</option>
                 <option value="blue">Blue</option>
                 <option value="green">Green</option>
                 <option value="brown">Brown</option>
                 <option value="grey">Grey</option>
-                <option value="black">Black</option>
                 <option value="amber">Amber</option>
             </select>
             {errors.eyes && <p style={{ color: "red" }}>{errors.eyes.message}</p>}

@@ -1,7 +1,8 @@
-import React from 'react';
+//import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import '/src/App.css';
+import PropTypes from 'prop-types';
 
 const NavBarMenu = ({ items }) => {
     return (
@@ -24,5 +25,8 @@ const NavBarMenu = ({ items }) => {
         </>
     );
 }
+NavBarMenu.propTypes = {    
+    items: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default NavBarMenu;

@@ -1,97 +1,97 @@
 export const data = [
 {
  id: 1,
- name: "Marek",
+ name: "Damian",
  birth: "1965-09-19",
- eyes:"grey",
- rating:"2"
-},
-
-{
- id: 2,
- name: "Patryk",
- birth: "1965-09-19",
- eyes:"hazel",
+ eyes:"green",
  rating:"4"
 },
 
 {
- id: 3,
- name: "Maksymilian",
+ id: 2,
+ name: "Wioletta",
  birth: "2000-10-10",
- eyes:"hazel",
- rating:"2"
+ eyes:"blue",
+ rating:"9"
+},
+
+{
+ id: 3,
+ name: "Jakub",
+ birth: "1989-05-19",
+ eyes:"black",
+ rating:"6"
 },
 
 {
  id: 4,
  name: "Maksymilian",
- birth: "2005-02-24",
- eyes:"grey",
- rating:"3"
-},
-
-{
- id: 5,
- name: "Wioletta",
- birth: "2005-01-15",
- eyes:"green",
+ birth: "1989-05-19",
+ eyes:"black",
  rating:"5"
 },
 
 {
- id: 6,
- name: "Weronika",
+ id: 5,
+ name: "Marek",
  birth: "2005-02-24",
- eyes:"blue",
- rating:"1"
+ eyes:"amber",
+ rating:"7"
+},
+
+{
+ id: 6,
+ name: "Marek",
+ birth: "1965-09-19",
+ eyes:"black",
+ rating:"8"
 },
 
 {
  id: 7,
- name: "Anna",
- birth: "2005-02-24",
- eyes:"hazel",
- rating:"4"
+ name: "Jakub",
+ birth: "1965-09-19",
+ eyes:"amber",
+ rating:"3"
 },
 
 {
  id: 8,
- name: "Bartosz",
- birth: "2000-10-10",
- eyes:"amber",
- rating:"2"
+ name: "Teresa",
+ birth: "1965-09-19",
+ eyes:"black",
+ rating:"0"
 },
 
 {
  id: 9,
- name: "Wioletta",
- birth: "1965-09-19",
- eyes:"blue",
- rating:"2"
+ name: "Wiesława",
+ birth: "1999-10-11",
+ eyes:"amber",
+ rating:"7"
 },
 
 {
  id: 10,
- name: "Wiesława",
- birth: "1999-10-11",
- eyes:"amber",
- rating:"0"
+ name: "Mateusz",
+ birth: "1989-05-19",
+ eyes:"green",
+ rating:"7"
 },
 
 {
  id: 11,
- name: "Weronika",
- birth: "1999-10-11",
+ name: "Maksymilian",
+ birth: "2005-02-24",
  eyes:"green",
- rating:"0"
+ rating:"1"
 },
 
 {
  id: 12,
- name: "Teresa",
- birth: "2005-01-15",
- eyes:"grey",
- rating:"3"
+ name: "Mateusz",
+ birth: "1999-10-11",
+ eyes:"amber",
+ rating:"10"
 },
 ];

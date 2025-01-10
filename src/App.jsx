@@ -18,7 +18,7 @@ import AppReducer from './data/AppReducer';
 const menuItems = [
   { id: 1, label: 'Home', url: '/', urlPattern: '/', element: <HomePage /> },
   { id: 2, label: 'Laboratorium 1', url: '/lab1', urlPattern: '/lab1', element: <Lab1Page names={data} /> },
-  { id: 3, label: 'Laboratorium 2', url: '/lab2/1', urlPattern: '/lab2/:id', element: <Lab2Page /> },
+  { id: 3, label: 'Laboratorium 2', url: '/lab2/1', urlPattern: '/lab2', element: <Lab2Page /> },
   { id: 4, label: 'Laboratorium 3', url: '/lab3/', urlPattern: '/lab3/', element: <Lab3Page /> },
   { id: 5, label: 'Laboratorium 4', url: '/lab4/', urlPattern: '/lab4/', element: <Lab4Page /> }
 ];
@@ -37,7 +37,7 @@ function App() {
           <Route key={item.id} path={item.urlPattern} element={item.element}/>
         ))}
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/lab4/edit/:id" element={<EditForm />} />
+        <Route path="/lab4/edit" element={<EditForm />} />
           <Route path="/lab4/add" element={<CreateForm />} />
           </Routes>          
       </RootLayout>
