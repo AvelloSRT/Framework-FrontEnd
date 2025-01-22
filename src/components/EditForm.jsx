@@ -3,6 +3,8 @@ import { useContext, useEffect, useState} from "react";
 import { useLocation } from 'react-router-dom';
 import AppContext from "../data/AppContext";
 import { useNavigate } from "react-router-dom";
+import '/src/App.css';
+import '/src/index.css';
 
 function EditForm() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -52,7 +54,6 @@ function EditForm() {
         navigate(`/lab1/`);
     };
 
-    //validacje
     const nameValidation = (name) => {
 
         if (!/^[A-Z]/.test(name)) {
@@ -74,9 +75,9 @@ function EditForm() {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="id">ID</label><br/>
-            <input type="text" value={itemToEdit.id} readOnly/>
+            <input type="text" value={itemToEdit.id} readOnly/><br />
 
-            <label htmlFor="name">Imię</label><br/>
+            <label htmlFor="name">Imię</label><br />
             <input
                 {...register("name", {
                     required: "Imię jest wymagane",
@@ -96,7 +97,7 @@ function EditForm() {
                 })}
             />
             {errors.birth && <p style={{ color: "red" }}>{errors.birth.message}</p>}
-
+            <br/>
             <label htmlFor="eyes">Eye Color</label>
             <select
                 {...register("eyes", {
@@ -125,7 +126,7 @@ function EditForm() {
                 })}
             />
             {errors.rating && <p style={{ color: "red" }}>{errors.rating.message}</p>}
-
+            <br/>
             <button type="submit">Save</button>
         </form>
     );

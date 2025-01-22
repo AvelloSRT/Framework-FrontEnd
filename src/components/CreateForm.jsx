@@ -1,10 +1,12 @@
 import { useContext, useState, useMemo } from "react";
 import AppContext from "../data/AppContext";
+import { useNavigate } from "react-router-dom";
 
 function CreateForm() {
     const [errors, setErrors] = useState([]); //stan komunikatów błędów
     const[isSending, setSending] = useState(false); //sygnalizator wysyłania
     const {items, dispatch} = useContext(AppContext);
+    const navigate = useNavigate();
 
     const newId = useMemo(() => {
         if (!Array.isArray(items) || items.length === 0 ) return 1; {
@@ -58,7 +60,7 @@ function CreateForm() {
         // dane formularza są poprawne, wysyłamy lub przekazujemy do dispatch
         setErrors([]);
         setSending(true);
-        alert("Dodano nowego użytkownika");
+        navigate("/lab1/");
 
         await new Promise(res => setTimeout(res, 1000)); //symulacja fetch
 
